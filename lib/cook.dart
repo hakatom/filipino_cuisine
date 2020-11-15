@@ -34,6 +34,7 @@ class CState extends State<Cook> {
                           child: Image.asset('assets/' + widget.img,
                               fit: BoxFit.cover, width: 100, height: 100))),
                   title: Text(widget.nme,
+                      key:Key("recipe dish name"),
                       style: Theme.of(ct)
                           .textTheme
                           .display2

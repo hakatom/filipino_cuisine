@@ -1,14 +1,13 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Users/doron/git/flutter
 FLUTTER_APPLICATION_PATH=/Users/doron/git/flutter_projects/filipino_cuisine
-FLUTTER_TARGET=/Users/doron/git/flutter_projects/filipino_cuisine/lib/main.dart
+FLUTTER_TARGET=/Users/doron/git/flutter_projects/filipino_cuisine/test_driver/app.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 OTHER_LDFLAGS=$(inherited) -framework Flutter
 FLUTTER_FRAMEWORK_DIR=/Users/doron/git/flutter/bin/cache/artifacts/engine/ios
 FLUTTER_BUILD_NAME=1.0.0
 FLUTTER_BUILD_NUMBER=1.0.0
-DART_DEFINES=flutter.inspector.structuredErrors%3Dtrue
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=true
 TREE_SHAKE_ICONS=false

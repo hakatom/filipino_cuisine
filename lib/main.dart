@@ -58,29 +58,36 @@ class HState extends State<Home> {
               child: Swiper(
                   onIndexChanged: (n) => setState(() => fi = fd[n]),
                   itemCount: fd.length,
+                  key : Key("dish swiper"),
                   itemBuilder: (cx, i) {
                     return Container(
+                        key: Key("dish Photo"),
+
                         margin: EdgeInsets.only(top: 40, bottom: 24),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Hero(
                               tag: fd[i]['fn'],
                               child: Image.asset('assets/' + fd[i]['pf'],
+
                                   fit: BoxFit.cover)),
                         ));
                   },
                   viewportFraction: .85,
                   scale: .9)),
           Text(fi['fn'],
+              key:Key("dish name"),
               style:
                   t.display3.copyWith(fontFamily: 'ark', color: Colors.black)),
           Container(
             child: Text(fi['cn'],
+                key:Key("dish specs"),
                 style: t.subhead.apply(color: Colors.red, fontFamily: 'opb')),
             margin: EdgeInsets.only(top: 10, bottom: 30),
           ),
           Container(
               child: Text(fi['dc'],
+                  key:Key("dish description"),
                   textAlign: TextAlign.center,
                   style: t.subhead.copyWith(fontFamily: 'opr')),
               margin: EdgeInsets.only(left: 10, right: 10)),
@@ -89,9 +96,11 @@ class HState extends State<Home> {
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: fi['ig'].length,
+                  key:Key("ingredients"),
                   itemBuilder: (cx, i) {
                     return Row(children: <Widget>[
                       Container(
+                          key:Key("ingredient"),
                           margin: EdgeInsets.only(left: 10),
                           height: 60,
                           child: Image.asset('assets/' + fi['ig'][i]['p'],
@@ -102,9 +111,11 @@ class HState extends State<Home> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Text(fi['ig'][i]['n'],
+                              key:Key("ingredient name"),
                                     style:
                                         t.subtitle.copyWith(fontFamily: 'opb')),
                                 Text(fi['ig'][i]['c'],
+                                    key:Key("ingredient amount"),
                                     style:
                                         t.caption.copyWith(fontFamily: 'opr'))
                               ]))
@@ -115,6 +126,7 @@ class HState extends State<Home> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.restaurant_menu),
+        key:Key("cook button"),
         onPressed: () => Navigator.push(
             ct,
             MaterialPageRoute(
@@ -127,20 +139,14 @@ class HState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 IconButton(
+                    key:Key("fav button"),
                     icon:
-                        Icon(fi['fv'] ? Icons.favorite : Icons.favorite_border),
+                        Icon(fi['fv'] ? Icons.favorite : Icons.favorite_border,key: Key("noFavIcon")),
                     onPressed: () => setState(() => fi['fv'] = !fi['fv'])),
-                IconButton(icon: Icon(Icons.share), onPressed: () {})
+                IconButton(icon: Icon(Icons.share),key:Key("share button") ,onPressed: () {})
               ])),
     );
   }
 }
 
-//test plan-
-//sanity - see the app is launched and both bottom and top are seen
-// usability
-//find all scrollable items - scroll to their length +1 (boundries check)
-//choose a recepie, like it, reload the app - see your like is still there
-//social media share
-//cook works and so does the radio buttons.
-//stress - launch and re-launch multiple time quickliy
+
